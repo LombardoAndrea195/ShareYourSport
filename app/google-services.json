@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "451233197951",
+    "firebase_url": "https://shareyoursport-20544.firebaseio.com",
+    "project_id": "shareyoursport-20544",
+    "storage_bucket": "shareyoursport-20544.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451233197951:android:e9847c279e6929e3d0344a",
+        "android_client_info": {
+          "package_name": "com.example.andrea.shareyoursport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451233197951-fb1vepn4ik1ef81fs4p09qi0iusbn3bi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_3c10HBjVttfHk-rt5bM_LOX4cwyL5eI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451233197951-fb1vepn4ik1ef81fs4p09qi0iusbn3bi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
