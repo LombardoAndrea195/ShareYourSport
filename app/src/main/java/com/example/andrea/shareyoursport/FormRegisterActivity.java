@@ -109,16 +109,29 @@ public class FormRegisterActivity extends AppCompatActivity {
             Toast.makeText(FormRegisterActivity.this, "Fields password is empty", Toast.LENGTH_LONG).show();
 
 
-        }else{
+        } else {
             mAuth.createUserWithEmailAndPassword(email_check, password_check)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-                               // Log.d(TAG, "createUserWithEmail:success");
+                                // Log.d(TAG, "createUserWithEmail:success");
+
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //updateUI(user);
+                                FirebaseUser userInstance = FirebaseAuth.getInstance().getCurrentUser();
+                                if (userInstance != null) {
+                                    String name = userInstance.getDisplayName();
+                                    String email = userInstance.getEmail();
+                                    Uri photoUrl = userInstance.getPhotoUrl();
+
+                                    // Check if user's email is verified
+                                    boolean emailVerified = userInstance.isEmailVerified();
+
+
+                                    //updateUI(user);
+                                }
                             } else {
                                 // If sign in fails, display a message to the user.
                                 //Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -126,8 +139,9 @@ public class FormRegisterActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                                 //updateUI(null);
                             }
-        }
-    });
+
+                        }
+                    });
         }
     }
     private void openGallery(){
