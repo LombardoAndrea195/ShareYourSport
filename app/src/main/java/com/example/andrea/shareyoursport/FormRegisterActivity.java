@@ -9,15 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -32,7 +26,6 @@ public class FormRegisterActivity extends AppCompatActivity {
     private FloatingActionButton buttonpicture;
     private CircleImageView picture;
     private Uri imageUri;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,38 +103,14 @@ public class FormRegisterActivity extends AppCompatActivity {
 
 
         } else {
-            mAuth.createUserWithEmailAndPassword(email_check, password_check)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                // Log.d(TAG, "createUserWithEmail:success");
+            Intent intent = new Intent(FormRegisterActivity.this, SecondActivity.class);
+            intent.putExtra("Name", Firstname_check);
+            intent.putExtra("Surname", Secondname_check);
+            intent.putExtra("Email", email_check);
+            intent.putExtra("URI_photo",imageUri.toString() );
+            intent.putExtra("password", password_check);
+            startActivity(intent);
 
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                //updateUI(user);
-                                FirebaseUser userInstance = FirebaseAuth.getInstance().getCurrentUser();
-                                if (userInstance != null) {
-                                    String name = userInstance.getDisplayName();
-                                    String email = userInstance.getEmail();
-                                    Uri photoUrl = userInstance.getPhotoUrl();
-
-                                    // Check if user's email is verified
-                                    boolean emailVerified = userInstance.isEmailVerified();
-
-
-                                    //updateUI(user);
-                                }
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                Toast.makeText(FormRegisterActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
-                            }
-
-                        }
-                    });
         }
     }
     private void openGallery(){
@@ -154,6 +123,7 @@ public class FormRegisterActivity extends AppCompatActivity {
         if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
             imageUri=data.getData();
             picture.setImageURI(imageUri);
+
         }
     }
 

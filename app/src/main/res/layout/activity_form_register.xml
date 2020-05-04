@@ -120,4 +120,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="405dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/com_facebook_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/register" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,19 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".FinishRegistrationActivity">
 
-    <Button
-        android:id="@+id/back"
-        android:layout_width="99dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="68dp"
-        android:text="Back"
-        app:layout_constraintEnd_toStartOf="@+id/next"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text4" />
 
     <TextView
         android:id="@+id/textView2"
@@ -72,72 +61,27 @@
         android:id="@+id/text1"
         android:layout_width="338dp"
         android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:text="Tell us something about you: "
+        android:layout_marginTop="96dp"
+        android:text="Congratulations, you are now ready! "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
+        android:textSize="17dp"
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="102dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="40dp"
-        android:text="You are: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
-
-    <TextView
-        android:id="@+id/text3"
-        android:layout_width="104dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="40dp"
-        android:text="Your birthdate: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text2" />
-
-    <TextView
-        android:id="@+id/text4"
-        android:layout_width="97dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="48dp"
-        android:text="Your city: "
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text3" />
-
-    <EditText
-        android:id="@+id/city"
-        android:layout_width="207dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="City,Country"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.872"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
 
     <Button
         android:id="@+id/next"
-        android:layout_width="100sp"
-        android:layout_height="45sp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="96dp"
+        android:layout_width="198dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="104dp"
         android:background="@color/com_facebook_blue"
 
         android:outlineAmbientShadowColor="@color/com_facebook_blue"
         android:outlineSpotShadowColor="@color/com_facebook_blue"
-        android:text="Next"
+        android:text="Take action! Start now!"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/city" />
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     <View
         android:id="@+id/divider"
@@ -161,40 +105,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-    <Switch
-        android:id="@+id/M"
-        style="@style/FirebaseUI.Text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
-        android:switchTextAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:text="Male"
-        app:layout_constraintStart_toEndOf="@+id/text2"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
-
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="dd/mm/yyyy"
-        android:inputType="date"
-        app:layout_constraintStart_toEndOf="@+id/text3"
-        app:layout_constraintTop_toBottomOf="@+id/M" />
-
-    <Switch
-        android:id="@+id/F"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:text="Female"
-        app:layout_constraintStart_toEndOf="@+id/M"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
