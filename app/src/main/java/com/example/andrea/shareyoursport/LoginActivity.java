@@ -3,39 +3,28 @@ package com.example.andrea.shareyoursport;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
-
-import com.google.firebase.*;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private Button blogin;
-    final ProgressBar simpleProgressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
+    private  ProgressBar simpleProgressBar;
 
     private FirebaseAuth mAuth;
     private TextView SignUp;
@@ -50,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         blogin = (Button) findViewById(R.id.login);
-
+        simpleProgressBar = (ProgressBar) findViewById(R.id.simpleProgressBar);
         SignUp = (TextView) findViewById(R.id.Signup);
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -58,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (firebaseAuth.getCurrentUser() != null) {
                     simpleProgressBar.setVisibility(View.VISIBLE);
                     startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+
+                    simpleProgressBar.setVisibility(View.INVISIBLE);
                 }
             }
         };
@@ -66,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 simpleProgressBar.setVisibility(View.VISIBLE);
                 startSignIn();
+
+                simpleProgressBar.setVisibility(View.INVISIBLE);
             }
         });
         SignUp.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                 simpleProgressBar.setVisibility(View.VISIBLE);
                 startActivity(new Intent(LoginActivity.this, FormRegisterActivity.class));
 
+                simpleProgressBar.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -207,19 +201,31 @@ public class LoginActivity extends AppCompatActivity {
         String email_check = email.getText().toString();
         String password_check = password.getText().toString();
 
-        if (TextUtils.isEmpty(email_check) || TextUtils.isEmpty(password_check)) {
-            Toast.makeText(LoginActivity.this, "Fields are empty", Toast.LENGTH_LONG).show();
+        if (email_check.isEmpty() ) {
+            email.setError("Please enter your email:");
+            email.requestFocus();
 
-        } else {
-            mAuth.signInWithEmailAndPassword(email_check, password_check).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            Toast.makeText(LoginActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
+        }
+            else if (password_check.isEmpty()){
+
+            password.setError("Please enter your password:");
+            password.requestFocus();
+
+            Toast.makeText(LoginActivity.this, "Field password is empty", Toast.LENGTH_LONG).show();
+
+        }else
+         {
+            mAuth.signInWithEmailAndPassword(email_check, password_check).addOnCompleteListener(LoginActivity.this,new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (!task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Sign In Problem", Toast.LENGTH_LONG).show();
-                        //updateUI(null);
-                    } else {
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        //updateUI(user);
+                        Toast.makeText(LoginActivity.this, "Login error", Toast.LENGTH_LONG).show();
+                            } else {
+
+                        Intent intToHome=new Intent(LoginActivity.this,MenuActivity.class);
+                        startActivity(intToHome);
+
                         FirebaseUser userInstance = FirebaseAuth.getInstance().getCurrentUser();
                         if (userInstance != null) {
                             // Name, email address, and profile photo Url

@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
+
     <ProgressBar
         android:id="@+id/simpleProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
+        android:layout_width="124dp"
+        android:layout_height="114dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="224dp"
+        android:layout_marginBottom="460dp"
+        android:outlineAmbientShadowColor="@color/com_facebook_blue"
+        android:outlineSpotShadowColor="@color/com_facebook_button_background_color"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:layout_marginBottom="18dp"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/email"
@@ -49,7 +51,7 @@
         android:layout_width="338dp"
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
-        android:text="Share Your Sport App"
+        android:text="Share Your Sport "
         android:textColor="@color/com_facebook_blue"
         android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
