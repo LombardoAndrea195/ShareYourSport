@@ -4,19 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuActivity">
+    tools:context=".FormRegisterActivity">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="338dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="32dp"
-        android:text="Share Your Sport App"
-        android:textColor="@color/com_facebook_blue"
-        android:textSize="29sp"
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="300dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.713"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
