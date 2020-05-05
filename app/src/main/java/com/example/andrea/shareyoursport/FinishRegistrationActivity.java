@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -73,7 +72,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
 
 
-
+/*
                 Date birthday = validateDateFormat(Date.toString());
 
                 new Thread()
@@ -81,7 +80,6 @@ public class FinishRegistrationActivity extends AppCompatActivity {
                     @Override
                     public void run()
                     {
-                       /*Creazione di un profilo e storage interno*/
 
                             Utente_Entity utenteNew = new Utente_Entity(birthday, Name, Surname, email, Sex, password, City);
 
@@ -89,7 +87,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
                     }
                 }.start();
 
-
+*/
                 Intent intent = new Intent(FinishRegistrationActivity.this, PreQuestionarieActivity.class);
                 intent.putExtra("Name", extras.getString("Name"));
                 intent.putExtra("Surname", extras.getString("Surname"));
