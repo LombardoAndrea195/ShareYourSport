@@ -2,7 +2,6 @@ package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,42 +9,20 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class FinishRegistrationActivity extends AppCompatActivity {
-
+public class QuestionarieActivity extends AppCompatActivity {
     private Button next;
-    private CircleImageView picture;
-    private Uri imageUri;
-
-    private static final int PICK_IMAGE = 100;
-     private TextView Name1;
+    private TextView Name1;
     private TextView Surname1;
-      private String Sex;
-    public java.util.Date validateDateFormat(String dateToValdate) {
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HHmmss");
-        //To make strict date format validation
-        formatter.setLenient(false);
-        java.util.Date parsedDate = null;
-        try {
-            parsedDate = formatter.parse(dateToValdate);
-            System.out.println("++validated DATE TIME ++"+formatter.format(parsedDate));
-
-        } catch (ParseException e) {
-            //Handle exception
-        }
-        return parsedDate;
-    }
+    private CircleImageView picture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pre_questionarie);
 
-        setContentView(R.layout.activity_finish_registration);
+        next=(Button) findViewById(R.id.next);
         Bundle extras = getIntent().getExtras();
         Name1 = (TextView) findViewById(R.id.name);
         Surname1 = (TextView) findViewById(R.id.surname);
@@ -60,11 +37,13 @@ public class FinishRegistrationActivity extends AppCompatActivity {
             String Sex =extras.getString("Sex");
             String City=extras.getString("City");
 
+
             Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
             picture.setImageBitmap(bitmap);
             Name1.setText(Name);
             Surname1.setText(Surname);
-            next.setOnClickListener(new View.OnClickListener() {
+        }
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -72,25 +51,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
 
 
-
-
-                Date birthday = validateDateFormat(Date.toString());
-
-                new Thread()
-                {
-                    @Override
-                    public void run()
-                    {
-                       /*Creazione di un profilo e storage interno*/
-
-                            Utente_Entity utenteNew = new Utente_Entity(birthday, Name, Surname, email, Sex, password, City);
-
-                        Utente_Entity utenteNew2 = new Utente_Entity(birthday, Name, Surname, email, Sex, password, City, bitmap);
-                    }
-                }.start();
-
-
-                Intent intent = new Intent(FinishRegistrationActivity.this, PreQuestionarieActivity.class);
+                Intent intent = new Intent(QuestionarieActivity.this, MenuActivity.class);
                 intent.putExtra("Name", extras.getString("Name"));
                 intent.putExtra("Surname", extras.getString("Surname"));
                 intent.putExtra("Email", extras.getString("Email"));
@@ -101,7 +62,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
                 intent.putExtra("Bitmap", bitmap);
 
                 intent.putExtra("password", extras.getString("password"));
-                intent.putExtra( "Sex",Sex);
+                intent.putExtra( "Sex",extras.getString("Sex"));
                 startActivity(intent);
 
             }
@@ -109,5 +70,5 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
     }
 
-    }
+
 }
