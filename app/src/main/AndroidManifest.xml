@@ -18,7 +18,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FinishRegistrationActivity"></activity>
+        <activity android:name=".SearchEventActivity"></activity>
+        <activity android:name=".NewEventActivity" />
+        <activity android:name=".FinishRegistrationActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".FormRegisterActivity" />
         <activity android:name=".MenuActivity" />
