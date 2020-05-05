@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="300dp"
         android:text="Share Your Sport "
-        android:textColor="@color/com_facebook_blue"
+        android:textColor="@color/blue"
         android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
@@ -27,14 +27,14 @@
         android:layout_width="111dp"
         android:layout_height="97dp"
         android:layout_marginTop="76dp"
-        android:src="@drawable/com_facebook_profile_picture_blank_portrait"
-        app:civ_border_color="@color/com_facebook_blue"
+        android:src="@drawable/person"
+        app:civ_border_color="@color/blue"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/com_facebook_profile_picture_blank_portrait" />
+        tools:src="@drawable/person" />
 
     <EditText
         android:id="@+id/firstname"
@@ -101,7 +101,7 @@
         android:layout_width="129dp"
         android:layout_height="57dp"
         android:layout_marginTop="48dp"
-        android:background="@color/com_facebook_blue"
+        android:background="@color/blue"
         android:text=" Next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -114,7 +114,7 @@
         android:layout_height="49dp"
         android:layout_marginTop="76dp"
         android:clickable="true"
-        app:backgroundTint="@color/fui_bgGoogle"
+        app:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +126,7 @@
         android:layout_width="405dp"
         android:layout_height="3dp"
         android:layout_marginTop="50dp"
-        android:background="@color/com_facebook_blue"
+        android:background="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/register" />

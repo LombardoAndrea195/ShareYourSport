@@ -1,7 +1,8 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,14 +24,14 @@ public class SecondActivity extends AppCompatActivity {
 
     private Button next;
     private CircleImageView picture;
-    private Uri imageUri;
     private EditText City;
     private Button Bback;
-    private static final int PICK_IMAGE = 100;
     private EditText Date;
     private TextView Name1;
     private TextView Surname1;
     private Switch Male;
+
+    private byte[] byteArray2;
     private Switch Female;
     private boolean M=false,F=false;
     private String Sex;
@@ -66,18 +67,26 @@ public class SecondActivity extends AppCompatActivity {
             String Name = extras.getString("Name");
             String Surname = extras.getString("Surname");
             String password = extras.getString("password");
-            String valueUri = extras.getString("URI_photo");
 
-            Uri imageUri = Uri.parse(valueUri);
-            picture.setImageURI(imageUri);
+
+            byte[] byteArray = extras.getByteArray("picture");
+            byteArray2=byteArray;
+            Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+
+            picture.setImageBitmap(bmp);
+
+            System.out.println(email);
+            System.out.println(Name);
+            System.out.println(Surname);
+
             Name1.setText(Name);
             Surname1.setText(Surname);
         Bback.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                onBackPressed();
               Intent  intent = new Intent(SecondActivity.this , FormRegisterActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
 //Bundle is optional
 //end Bundle
                 startActivity(intent);
@@ -152,7 +161,7 @@ public class SecondActivity extends AppCompatActivity {
                 intent.putExtra("Email", extras.getString("Email"));
                 intent.putExtra("City", City.getText().toString());
                 intent.putExtra("Date", Date.getText().toString());
-                intent.putExtra("URI_photo", imageUri.toString());
+                intent.putExtra("picture",byteArray2);
                 intent.putExtra("password", extras.getString("password"));
                 intent.putExtra( "Sex",Sex);
                 startActivity(intent);
@@ -162,13 +171,5 @@ public class SecondActivity extends AppCompatActivity {
 
     }}
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
-            imageUri=data.getData();
-            picture.setImageURI(imageUri);
 
-        }
-}
     }

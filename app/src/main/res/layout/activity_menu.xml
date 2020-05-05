@@ -12,7 +12,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="32dp"
         android:text="Share Your Sport "
-        android:textColor="@color/com_facebook_blue"
+        android:textColor="@color/blue"
         android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.713"
@@ -23,9 +23,9 @@
         android:layout_width="409dp"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="@color/com_facebook_blue"
-        android:outlineAmbientShadowColor="@color/com_facebook_blue"
-        android:outlineSpotShadowColor="@color/com_facebook_blue"
+        android:background="@color/blue"
+        android:outlineAmbientShadowColor="@color/blue"
+        android:outlineSpotShadowColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
