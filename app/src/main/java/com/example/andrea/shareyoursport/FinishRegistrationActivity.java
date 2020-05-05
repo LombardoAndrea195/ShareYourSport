@@ -83,6 +83,10 @@ public class FinishRegistrationActivity extends AppCompatActivity {
                     public void run()
                     {
                        /*Creazione di un profilo e storage interno*/
+
+                            Utente_Entity utenteNew = new Utente_Entity(birthday, Name, Surname, email, Sex, password, City);
+
+                        Utente_Entity utenteNew2 = new Utente_Entity(birthday, Name, Surname, email, Sex, password, City, bitmap);
                     }
                 }.start();
 
