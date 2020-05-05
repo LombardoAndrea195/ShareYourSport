@@ -34,15 +34,15 @@ public class SecondActivity extends AppCompatActivity {
     private boolean M=false,F=false;
     private String Sex;
     private  String password,email;
-
+    private String Name,Surname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         Bundle extras = getIntent().getExtras();
         Bback = (Button) findViewById(R.id.back);
-        Name1 = (TextView) findViewById(R.id.firstname);
-        Surname1 = (TextView) findViewById(R.id.secondname);
+        Name1 = (TextView)findViewById(R.id.name);
+        Surname1 = (TextView) findViewById(R.id.surname);
         Female = (Switch) findViewById(R.id.F);
         Male = (Switch) findViewById(R.id.M);
         next=(Button) findViewById(R.id.next);
@@ -51,10 +51,10 @@ public class SecondActivity extends AppCompatActivity {
         Date=(EditText) findViewById(R.id.date);
 
         if (extras != null) {
-            String email = extras.getString("Email");
-            String Name = extras.getString("Name");
-            String Surname = extras.getString("Surname");
-            String password = extras.getString("password");
+             email = extras.getString("Email");
+            Name = extras.getString("Name");
+             Surname = extras.getString("Surname");
+             password = extras.getString("password");
 
 
             int imageURi = extras.getInt("picture");

@@ -135,7 +135,9 @@ public class FormRegisterActivity extends AppCompatActivity {
 
             intent.putExtra("picture", R.id.profile_image);
         intent.putExtra("password", password_check);
+
         startActivity(intent);
+        finish();
     }}
 
 
