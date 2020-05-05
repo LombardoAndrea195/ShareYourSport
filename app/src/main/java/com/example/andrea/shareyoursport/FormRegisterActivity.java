@@ -1,8 +1,6 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,8 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.io.ByteArrayOutputStream;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,7 +27,7 @@ public class FormRegisterActivity extends AppCompatActivity {
     private CircleImageView picture;
     private Uri imageUri;
 
-    private byte[] byteArray;
+
     private void openGallery(){
         Intent gallery =new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
         startActivityForResult(gallery,PICK_IMAGE);
@@ -42,16 +38,10 @@ public class FormRegisterActivity extends AppCompatActivity {
         if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
             imageUri=data.getData();
             picture.setImageURI(imageUri);
-            Bitmap bmp = BitmapFactory.decodeResource(getResources(), R.id.profile_image);
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-
-            byteArray = stream.toByteArray();
 
         }
     }
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_register);
@@ -140,7 +130,10 @@ public class FormRegisterActivity extends AppCompatActivity {
         intent.putExtra("Name", Firstname_check);
         intent.putExtra("Surname", Secondname_check);
         intent.putExtra("Email", email_check);
-        intent.putExtra("picture", byteArray);
+
+
+
+            intent.putExtra("picture", R.id.profile_image);
         intent.putExtra("password", password_check);
         startActivity(intent);
     }}
