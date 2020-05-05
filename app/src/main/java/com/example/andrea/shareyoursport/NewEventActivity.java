@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,9 @@ public class NewEventActivity extends AppCompatActivity {
     private Button next;
     private TextView Name1;
     private TextView Surname1;
+
+    private RadioButton A,B,C;
+    private String Level;
 
     private CircleImageView picture;
 
@@ -45,6 +49,7 @@ public class NewEventActivity extends AppCompatActivity {
                 public void onClick(View v) {
 
 
+                    onRadioButtonClicked(v);
 
 
 
@@ -70,4 +75,26 @@ public class NewEventActivity extends AppCompatActivity {
         }
 
     }
-}
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.A:
+                if (checked)
+                    Level = "Easy";
+
+                break;
+            case R.id.C:
+                if (checked)
+                    Level = "Middle";
+
+                break;
+            case R.id.B:
+                if (checked)
+                    Level = "Hard";
+                break;
+        }
+    }}

@@ -1,7 +1,6 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,9 +23,9 @@ public class PreQuestionarieActivity extends AppCompatActivity {
 
         next=(Button) findViewById(R.id.next);
         Bundle extras = getIntent().getExtras();
-        Name1 = (TextView) findViewById(R.id.name);
-        Surname1 = (TextView) findViewById(R.id.surname);
-        picture = (CircleImageView) findViewById(R.id.profile_image);
+      //  Name1 = (TextView) findViewById(R.id.name);
+       // Surname1 = (TextView) findViewById(R.id.surname);
+        //picture = (CircleImageView) findViewById(R.id.profile_image);
 
         if (extras != null) {
             String email = extras.getString("Email");
@@ -38,10 +37,10 @@ public class PreQuestionarieActivity extends AppCompatActivity {
             String City=extras.getString("City");
 
 
-            Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
-            picture.setImageBitmap(bitmap);
-            Name1.setText(Name);
-            Surname1.setText(Surname);
+//            Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
+//            picture.setImageBitmap(bitmap);
+  //          Name1.setText(Name);
+    //        Surname1.setText(Surname);
         }
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,9 +56,9 @@ public class PreQuestionarieActivity extends AppCompatActivity {
                 intent.putExtra("Email", extras.getString("Email"));
                 intent.putExtra("City", extras.getString("City"));
                 intent.putExtra("Date", extras.getString("Date"));
-                picture.buildDrawingCache();
-                Bitmap bitmap = picture.getDrawingCache();
-                intent.putExtra("Bitmap", bitmap);
+      //          picture.buildDrawingCache();
+    //            Bitmap bitmap = picture.getDrawingCache();
+  //              intent.putExtra("Bitmap", bitmap);
 
                 intent.putExtra("password", extras.getString("password"));
                 intent.putExtra( "Sex",extras.getString("Sex"));

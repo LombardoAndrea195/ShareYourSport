@@ -7,11 +7,11 @@
     tools:context=".NewEventActivity">
 
         <RadioButton
-            android:id="@+id/Medium"
+            android:id="@+id/B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="164dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="176dp"
             android:text="Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -100,49 +100,50 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.525"
             app:layout_constraintStart_toEndOf="@+id/textView17"
-            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+            app:layout_constraintTop_toBottomOf="@+id/date" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/date"
             android:layout_width="213dp"
             android:layout_height="38dp"
             android:layout_marginStart="56dp"
+            android:layout_marginTop="72dp"
             android:ems="10"
             android:hint="dd/mm/yyyy"
             android:inputType="date"
             app:layout_constraintStart_toEndOf="@+id/textView15"
-            tools:layout_editor_absoluteY="205dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <Button
             android:id="@+id/next"
             android:layout_width="150dp"
             android:layout_height="56dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
             android:background="@color/blue"
             android:text="Create an event"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Medium" />
+            app:layout_constraintTop_toBottomOf="@+id/B" />
 
         <RadioButton
-            android:id="@+id/easy"
+            android:id="@+id/A"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="32dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="40dp"
             android:text="Easy"
-            app:layout_constraintEnd_toStartOf="@+id/Medium"
+            app:layout_constraintEnd_toStartOf="@+id/B"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <RadioButton
-            android:id="@+id/Hard"
+            android:id="@+id/C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="44dp"
             android:text="Hard"
-            app:layout_constraintStart_toEndOf="@+id/Medium"
+            app:layout_constraintStart_toEndOf="@+id/B"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
         <TextView
