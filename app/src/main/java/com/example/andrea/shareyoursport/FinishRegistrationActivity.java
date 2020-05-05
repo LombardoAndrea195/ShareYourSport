@@ -1,6 +1,7 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -46,8 +47,8 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_finish_registration);
         Bundle extras = getIntent().getExtras();
-        Name1 = (TextView) findViewById(R.id.firstname);
-        Surname1 = (TextView) findViewById(R.id.secondname);
+        Name1 = (TextView) findViewById(R.id.name);
+        Surname1 = (TextView) findViewById(R.id.surname);
         picture = (CircleImageView) findViewById(R.id.profile_image);
 
         if (extras != null) {
@@ -55,15 +56,16 @@ public class FinishRegistrationActivity extends AppCompatActivity {
             String Name = extras.getString("Name");
             String Surname = extras.getString("Surname");
             String password = extras.getString("password");
-            String valueUri = extras.getString("URI_photo");
+            int valueUri = extras.getInt("picture");
             String Date =extras.getString("Date");
             String Sex =extras.getString("Sex");
             String City=extras.getString("City");
-            Uri imageUri = Uri.parse(valueUri);
-            picture.setImageURI(imageUri);
+
+            Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
+            picture.setImageBitmap(bitmap);
             Name1.setText(Name);
             Surname1.setText(Surname);
-        next.setOnClickListener(new View.OnClickListener() {
+            next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -75,7 +77,14 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
                 Date birthday = validateDateFormat(Date.toString());
 
-
+                new Thread()
+                {
+                    @Override
+                    public void run()
+                    {
+                       /*Creazione di un profilo e storage interno*/
+                    }
+                }.start();
 
 
                 Intent intent = new Intent(FinishRegistrationActivity.this, MenuActivity.class);
@@ -84,7 +93,10 @@ public class FinishRegistrationActivity extends AppCompatActivity {
                 intent.putExtra("Email", extras.getString("Email"));
                 intent.putExtra("City", extras.getString("City"));
                 intent.putExtra("Date", extras.getString("Date"));
-                intent.putExtra("URI_photo", imageUri.toString());
+                picture.buildDrawingCache();
+                Bitmap bitmap = picture.getDrawingCache();
+                intent.putExtra("Bitmap", bitmap);
+
                 intent.putExtra("password", extras.getString("password"));
                 intent.putExtra( "Sex",Sex);
                 startActivity(intent);
@@ -93,14 +105,6 @@ public class FinishRegistrationActivity extends AppCompatActivity {
         });
 
     }
-    }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if(resultCode==RESULT_OK && requestCode==PICK_IMAGE){
-            imageUri=data.getData();
-            picture.setImageURI(imageUri);
 
-        }
     }
 }

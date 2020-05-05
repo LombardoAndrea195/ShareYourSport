@@ -81,12 +81,12 @@
 
     <TextView
         android:id="@+id/text2"
-        android:layout_width="102dp"
+        android:layout_width="56dp"
         android:layout_height="23dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:text="You are: "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text1" />
 
@@ -97,7 +97,7 @@
         android:layout_marginTop="40dp"
         android:text="Your birthdate: "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text2" />
 
@@ -108,7 +108,7 @@
         android:layout_marginTop="48dp"
         android:text="Your city: "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintHorizontal_bias="0.13"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text3" />
 

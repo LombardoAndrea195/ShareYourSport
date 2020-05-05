@@ -1,6 +1,7 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -86,8 +87,18 @@ public class FormRegisterActivity extends AppCompatActivity {
         String passwordconfirm_check = Password_conf.getText().toString();
         String Secondname_check = Secondname.getText().toString();
         String Firstname_check = Firstname.getText().toString();
+        if(Firstname_check.isEmpty()) {
+            Firstname.setError("Please enter your first name");
+            Firstname.requestFocus();
 
-        if (email_check.isEmpty()) {
+            Toast.makeText(FormRegisterActivity.this, "Fields First name is empty", Toast.LENGTH_LONG).show();
+        }else if (Secondname_check.isEmpty()) {
+            Secondname.setError("Please enter your second name");
+            Secondname.requestFocus();
+
+            Toast.makeText(FormRegisterActivity.this, "Field Last name is empty", Toast.LENGTH_LONG).show();
+        }
+         else   if (email_check.isEmpty()) {
             E_mail.setError("Please enter your email:");
             E_mail.requestFocus();
 
@@ -101,19 +112,9 @@ public class FormRegisterActivity extends AppCompatActivity {
 
             Toast.makeText(FormRegisterActivity.this, "Fields password is empty", Toast.LENGTH_LONG).show();
 
-        } else if (Secondname_check.isEmpty()) {
-            Secondname.setError("Please enter your second name");
-            Secondname.requestFocus();
+        }
 
-            Toast.makeText(FormRegisterActivity.this, "Field Last name is empty", Toast.LENGTH_LONG).show();
-
-        } else if (Firstname_check.isEmpty()) {
-            Firstname.setError("Please enter your first name");
-            Firstname.requestFocus();
-
-            Toast.makeText(FormRegisterActivity.this, "Fields First name is empty", Toast.LENGTH_LONG).show();
-
-        } else if (!password_check.contentEquals(passwordconfirm_check)) {
+         else if (!password_check.contentEquals(passwordconfirm_check)) {
             Password.setError("Password are not the same:");
             Password.requestFocus();
             Password_conf.setError("Password are not the same");
@@ -130,10 +131,9 @@ public class FormRegisterActivity extends AppCompatActivity {
         intent.putExtra("Name", Firstname_check);
         intent.putExtra("Surname", Secondname_check);
         intent.putExtra("Email", email_check);
-
-
-
-            intent.putExtra("picture", R.id.profile_image);
+            picture.buildDrawingCache();
+            Bitmap bitmap = picture.getDrawingCache();
+            intent.putExtra("Bitmap", bitmap);
         intent.putExtra("password", password_check);
 
         startActivity(intent);

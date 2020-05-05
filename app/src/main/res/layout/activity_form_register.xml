@@ -31,7 +31,7 @@
         app:civ_border_color="@color/blue"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/person" />
@@ -110,16 +110,29 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/new_pic"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="34dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="72dp"
+        android:alpha="55"
+        android:autoSizeMaxTextSize="35dp"
         android:clickable="true"
-        app:backgroundTint="@color/white"
+        android:elevation="12dp"
+        android:foregroundGravity="fill_horizontal|center|fill_vertical|right|center_horizontal|fill"
+        android:scrollbarThumbHorizontal="@android:drawable/btn_plus"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@android:color/white"
+        app:borderWidth="3dp"
+        app:fabCustomSize="33sp"
+        app:fabSize="normal"
+        app:hoveredFocusedTranslationZ="0.2dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.602"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="@+id/profile_image"
+        app:layout_constraintTop_toBottomOf="@+id/divider3"
+        app:maxImageSize="52dp"
+        app:pressedTranslationZ="2dp"
+        app:useCompatPadding="false" />
 
     <View
         android:id="@+id/divider3"

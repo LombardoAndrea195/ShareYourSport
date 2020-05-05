@@ -1,6 +1,7 @@
 package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -52,17 +53,14 @@ public class SecondActivity extends AppCompatActivity {
 
         if (extras != null) {
              email = extras.getString("Email");
-            Name = extras.getString("Name");
+             Name = extras.getString("Name");
              Surname = extras.getString("Surname");
              password = extras.getString("password");
 
 
-            int imageURi = extras.getInt("picture");
-            picture.setImageResource(imageURi);
+            Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
+            picture.setImageBitmap(bitmap);
 
-            System.out.println(email);
-            System.out.println(Name);
-            System.out.println(Surname);
 
             Name1.setText(Name);
             Surname1.setText(Surname);
@@ -131,6 +129,13 @@ public class SecondActivity extends AppCompatActivity {
             Toast.makeText(SecondActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
 
         }
+        else if(Date.getText().toString().length()!=8){
+            Date.setError("Please enter your birthday's date:");
+            Date.requestFocus();
+
+            Toast.makeText(SecondActivity.this, "Field should be as 06071995", Toast.LENGTH_LONG).show();
+
+        }
 
         Date birthday = validateDateFormat(Date.toString());
 
@@ -141,18 +146,21 @@ public class SecondActivity extends AppCompatActivity {
             Toast.makeText(SecondActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
         }
 
+        else {
+            Intent intent = new Intent(SecondActivity.this, FinishRegistrationActivity.class);
+            intent.putExtra("Name", Name1.getText().toString());
+            intent.putExtra("Surname", Surname1.getText().toString());
+            intent.putExtra("Email", email);
+            intent.putExtra("City", City.getText().toString());
+            intent.putExtra("Date", Date.getText().toString());
+            picture.buildDrawingCache();
+            Bitmap bitmap = picture.getDrawingCache();
+            intent.putExtra("Bitmap", bitmap);
 
-        Intent intent = new Intent(SecondActivity.this, FinishRegistrationActivity.class);
-        intent.putExtra("Name", Name1.getText().toString());
-        intent.putExtra("Surname", Surname1.getText().toString());
-        intent.putExtra("Email", email);
-        intent.putExtra("City", City.getText().toString());
-        intent.putExtra("Date", Date.getText().toString());
-        intent.putExtra("picture",R.id.profile_image);
-        intent.putExtra("password", password);
-        intent.putExtra( "Sex",Sex);
-        startActivity(intent);
-
+            intent.putExtra("password", password);
+            intent.putExtra("Sex", Sex);
+            startActivity(intent);
+        }
 
     }
     private void back(){
