@@ -82,61 +82,14 @@ public class SecondActivity extends AppCompatActivity {
     }});
 
     }
+
     private void next(){
 
-        Male.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    M = true;
-                } else {
-                    M = false;
-                }
-            }
-        });
-        Female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    F = true;
-                } else {
-                    F = false;
-                }
-            }
-        });
-        if (F == true && M == true) {
-            Female.setError("Set only one Sex option");
-            Male.setError("Set only one Sex option");
-            Female.requestFocus();
-            Male.requestFocus();
+        checkSex();
+        System.out.println(Sex);
+        checkDate();
 
-            Toast.makeText(SecondActivity.this, "Select only one", Toast.LENGTH_LONG).show();
-        } else if (F == false && M == false) {
-            Female.setError("Set one Sex option");
-            Male.setError("Set one Sex option");
-            Female.requestFocus();
-            Male.requestFocus();
-
-            Toast.makeText(SecondActivity.this, "Select one", Toast.LENGTH_LONG).show();
-
-        } else if (F == true && M == false) {
-            Sex = "Female";
-        } else {
-            Sex = "Male";
-        }
-        if (Date.getText().toString().isEmpty()) {
-            Date.setError("Please enter your birthday's date:");
-            Date.requestFocus();
-
-            Toast.makeText(SecondActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
-
-        }
-        else if(Date.getText().toString().length()!=8){
-            Date.setError("Please enter your birthday's date:");
-            Date.requestFocus();
-
-            Toast.makeText(SecondActivity.this, "Field should be as 06071995", Toast.LENGTH_LONG).show();
-
-        }
-
+        System.out.println(Date);
         Date birthday = validateDateFormat(Date.toString());
 
         if (City.getText().toString().isEmpty()) {
@@ -184,6 +137,62 @@ public class SecondActivity extends AppCompatActivity {
         }
         return parsedDate;
     }
+private void checkSex(){
+    Male.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                M = true;
+            } else {
+                M = false;
+            }
+        }
+    });
+    Female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if (isChecked) {
+                F = true;
+            } else {
+                F = false;
+            }
+        }
+    });
+    if (F == true && M == true) {
+        Female.setError("Set only one Sex option");
+        Male.setError("Set only one Sex option");
+        Female.requestFocus();
+        Male.requestFocus();
+
+        Toast.makeText(SecondActivity.this, "Select only one", Toast.LENGTH_LONG).show();
+    } else if (F == false && M == false) {
+        Female.setError("Set one Sex option");
+        Male.setError("Set one Sex option");
+        Female.requestFocus();
+        Male.requestFocus();
+
+        Toast.makeText(SecondActivity.this, "Select one", Toast.LENGTH_LONG).show();
+
+    } else if (F == true && M == false) {
+        Sex = "Female";
+    } else {
+        Sex = "Male";
+    }
+}
+private void checkDate(){
+    if (Date.getText().toString().isEmpty()) {
+        Date.setError("Please enter your birthday's date:");
+        Date.requestFocus();
+
+        Toast.makeText(SecondActivity.this, "Field is empty", Toast.LENGTH_LONG).show();
+
+    }
+    else if(Date.getText().toString().length()!=8){
+        Date.setError("Please enter your birthday's date:");
+        Date.requestFocus();
+
+        Toast.makeText(SecondActivity.this, "Field should be as 06071995", Toast.LENGTH_LONG).show();
+
+    }
+}
 }
 
 

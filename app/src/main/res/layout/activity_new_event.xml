@@ -149,15 +149,19 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="32dp"
             android:text="Level of training required"
-            tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="488dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="48dp"
             android:text="Max number of participants:"
-            tools:layout_editor_absoluteX="93dp"
-            tools:layout_editor_absoluteY="430dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/annotations" />
 </androidx.constraintlayout.widget.ConstraintLayout>

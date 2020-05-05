@@ -2,7 +2,6 @@ package com.example.andrea.shareyoursport;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,9 +18,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
 
     private Button next;
     private CircleImageView picture;
-    private Uri imageUri;
 
-    private static final int PICK_IMAGE = 100;
      private TextView Name1;
     private TextView Surname1;
       private String Sex;
@@ -49,7 +46,7 @@ public class FinishRegistrationActivity extends AppCompatActivity {
         Name1 = (TextView) findViewById(R.id.name);
         Surname1 = (TextView) findViewById(R.id.surname);
         picture = (CircleImageView) findViewById(R.id.profile_image);
-
+        next=(Button) findViewById(R.id.next);
         if (extras != null) {
             String email = extras.getString("Email");
             String Name = extras.getString("Name");
