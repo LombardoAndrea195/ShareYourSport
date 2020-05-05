@@ -5,7 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NewEventActivity">
-    <?xml version="1.0" encoding="utf-8"?>
+
+        <RadioButton
+            android:id="@+id/Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="164dp"
+            android:text="Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="28dp"
+            android:text="When"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/textView2"
@@ -29,4 +48,116 @@
             android:outlineSpotShadowColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Create a sport event"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="24dp"
+            android:text="Sport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/annotations"
+            android:layout_width="331dp"
+            android:layout_height="90dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Insert a description or an annotation...."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/place" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="28dp"
+            android:text="Where"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+        <EditText
+            android:id="@+id/place"
+            android:layout_width="213dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Rome,Via Ariosto"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toEndOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="213dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="56dp"
+            android:ems="10"
+            android:hint="dd/mm/yyyy"
+            android:inputType="date"
+            app:layout_constraintStart_toEndOf="@+id/textView15"
+            tools:layout_editor_absoluteY="205dp" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="150dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="44dp"
+            android:background="@color/blue"
+            android:text="Create an event"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Medium" />
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:text="Easy"
+            app:layout_constraintEnd_toStartOf="@+id/Medium"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <RadioButton
+            android:id="@+id/Hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="48dp"
+            android:text="Hard"
+            app:layout_constraintStart_toEndOf="@+id/Medium"
+            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level of training required"
+            tools:layout_editor_absoluteX="106dp"
+            tools:layout_editor_absoluteY="488dp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Max number of participants:"
+            tools:layout_editor_absoluteX="93dp"
+            tools:layout_editor_absoluteY="430dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

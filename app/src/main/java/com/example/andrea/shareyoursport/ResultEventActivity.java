@@ -11,8 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SearchEventActivity extends AppCompatActivity {
-
+public class ResultEventActivity extends AppCompatActivity {
     private Button next;
     private TextView Name1;
     private TextView Surname1;
@@ -21,7 +20,8 @@ public class SearchEventActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_event);
+        setContentView(R.layout.activity_result_event);
+
         Bundle extras = getIntent().getExtras();
         Name1 = (TextView) findViewById(R.id.name);
         Surname1 = (TextView) findViewById(R.id.surname);
@@ -49,7 +49,7 @@ public class SearchEventActivity extends AppCompatActivity {
 
 
 
-                    Intent intent = new Intent(SearchEventActivity.this, ResultEventActivity.class);
+                    Intent intent = new Intent(ResultEventActivity.this, MenuActivity.class);
                     intent.putExtra("Name", extras.getString("Name"));
                     intent.putExtra("Surname", extras.getString("Surname"));
                     intent.putExtra("Email", extras.getString("Email"));
@@ -69,5 +69,5 @@ public class SearchEventActivity extends AppCompatActivity {
         }
 
     }
-    }
+}
 
