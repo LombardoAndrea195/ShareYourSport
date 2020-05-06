@@ -18,7 +18,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResultEventActivity"></activity>
+        <activity android:name=".Statistics"></activity>
+        <activity android:name=".ResultEventActivity" />
         <activity android:name=".QuestionarieActivity" />
         <activity android:name=".PreQuestionarieActivity" />
         <activity android:name=".SearchEventActivity" />
