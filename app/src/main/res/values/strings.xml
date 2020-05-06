@@ -19,4 +19,12 @@
     <string name="stringaconfermaurl">Per controllare le iscrizioni vedere il seguente link:</string>
     <string name="noHttp">No connessione HTTP</string>
     <string name="errorconnection">Errore connessione</string>
+    <string-array name="Sport">
+        <item>Swimming</item>
+        <item>Gym</item>
+        <item>Tennis</item>
+        <item>Football</item>
+        <item>Running</item>
+        <item>Yoga</item>
+    </string-array>
 </resources>

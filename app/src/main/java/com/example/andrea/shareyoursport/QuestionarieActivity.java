@@ -93,18 +93,25 @@ public class QuestionarieActivity extends AppCompatActivity {
         // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.A:
-                if (checked)
-                    Level="Easy";
-
-                    break;
-            case R.id.C:
-                if (checked)
-                    Level="Middle";
-
-                    break;
+                if (checked) {
+                    Level = "Easy";
+                    B.setChecked(false);
+                    C.setChecked(false);
+                }
+                break;
             case R.id.B:
-                if (checked)
+                if (checked) {
+                    Level = "Middle";
+                    A.setChecked(false);
+                    C.setChecked(false);
+                }
+                break;
+                case R.id.C:
+                if (checked){
                     Level="Hard";
+                    C.setChecked(false);
+                    B.setChecked(false);
+                }
                     break;
         }
     }

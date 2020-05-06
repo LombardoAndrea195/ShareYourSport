@@ -6,7 +6,7 @@ import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Statistics extends AppCompatActivity {
+public class Configuration_Statistics extends AppCompatActivity {
 
     private Switch AlertEvent,AlertJoin;
 
@@ -18,7 +18,7 @@ public class Statistics extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
+        setContentView(R.layout.activity_configuration_statistics);
 
         Bundle extras = getIntent().getExtras();
 //        Name1 = (TextView)findViewById(R.id.name);
