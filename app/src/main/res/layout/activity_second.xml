@@ -162,39 +162,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-    <Switch
-        android:id="@+id/M"
-        style="@style/TextAppearance.AppCompat.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
-        android:switchTextAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:text="Male"
-        app:layout_constraintStart_toEndOf="@+id/text2"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
-
     <EditText
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="dd/mm/yyyy"
         android:inputType="date"
         app:layout_constraintStart_toEndOf="@+id/text3"
-        app:layout_constraintTop_toBottomOf="@+id/M" />
+        app:layout_constraintTop_toBottomOf="@+id/sex" />
 
-    <Switch
-        android:id="@+id/F"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
-        android:text="Female"
-        app:layout_constraintStart_toEndOf="@+id/M"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+    <Spinner
+        android:id="@+id/sex"
+        android:layout_width="214dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        android:entries="@array/sex"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

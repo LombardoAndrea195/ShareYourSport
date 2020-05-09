@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Button next;
     private CircleImageView picture;
@@ -28,12 +29,11 @@ public class SecondActivity extends AppCompatActivity {
     private EditText Date;
     private TextView Name1;
     private TextView Surname1;
-    private Switch Male;
+
 
     private byte[] byteArray2;
-    private Switch Female;
-    private boolean M=false,F=false;
-    private String Sex;
+    private Spinner Sex;
+    private String Sextext;
     private  String password,email;
     private String Name,Surname;
     @Override
@@ -44,8 +44,8 @@ public class SecondActivity extends AppCompatActivity {
         Bback = (Button) findViewById(R.id.back);
         Name1 = (TextView)findViewById(R.id.name);
         Surname1 = (TextView) findViewById(R.id.surname);
-        Female = (Switch) findViewById(R.id.F);
-        Male = (Switch) findViewById(R.id.M);
+
+        Sex = (Spinner) findViewById(R.id.sex);
         next=(Button) findViewById(R.id.next);
         picture = (CircleImageView) findViewById(R.id.profile_image);
         City=(EditText)findViewById(R.id.city);
@@ -90,7 +90,7 @@ public class SecondActivity extends AppCompatActivity {
         checkDate();
 
         System.out.println(Date);
-        Date birthday = validateDateFormat(Date.toString());
+     //   Date birthday = validateDateFormat(Date.toString());
 
         if (City.getText().toString().isEmpty()) {
             City.setError("Please enter your city:");
@@ -111,7 +111,7 @@ public class SecondActivity extends AppCompatActivity {
             intent.putExtra("Bitmap", bitmap);
 
             intent.putExtra("password", password);
-            intent.putExtra("Sex", Sex);
+            intent.putExtra("Sex", Sextext);
             startActivity(intent);
         }
 
@@ -138,44 +138,13 @@ public class SecondActivity extends AppCompatActivity {
         return parsedDate;
     }
 private void checkSex(){
-    Male.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
-                M = true;
-            } else {
-                M = false;
-            }
-        }
-    });
-    Female.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if (isChecked) {
-                F = true;
-            } else {
-                F = false;
-            }
-        }
-    });
-    if (F == true && M == true) {
-        Female.setError("Set only one Sex option");
-        Male.setError("Set only one Sex option");
-        Female.requestFocus();
-        Male.requestFocus();
 
-        Toast.makeText(SecondActivity.this, "Select only one", Toast.LENGTH_LONG).show();
-    } else if (F == false && M == false) {
-        Female.setError("Set one Sex option");
-        Male.setError("Set one Sex option");
-        Female.requestFocus();
-        Male.requestFocus();
+    ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.sex,android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    Sex.setAdapter(adapter);
+//    Sex.setOnItemClickListener((AdapterView.OnItemClickListener) this);
 
-        Toast.makeText(SecondActivity.this, "Select one", Toast.LENGTH_LONG).show();
 
-    } else if (F == true && M == false) {
-        Sex = "Female";
-    } else {
-        Sex = "Male";
-    }
 }
 private void checkDate(){
     if (Date.getText().toString().isEmpty()) {
@@ -193,6 +162,17 @@ private void checkDate(){
 
     }
 }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Sextext=parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),"selected "+Sextext,Toast.LENGTH_LONG ).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
 
 

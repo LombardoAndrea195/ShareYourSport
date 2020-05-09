@@ -5,17 +5,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class QuestionarieActivity extends AppCompatActivity {
     private Button next;
+    private EditText height,weight;
     private TextView Name1;
     private TextView Surname1;
     private List<String> preferences;
@@ -23,7 +28,7 @@ public class QuestionarieActivity extends AppCompatActivity {
     private CheckBox Tennis,Football,Gym,Yoga,Swimming,Running;
     private RadioButton A,B,C;
     private String Level;
-    private Integer Height,Weight;
+    private String Height,Weight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,10 @@ public class QuestionarieActivity extends AppCompatActivity {
         Running=(CheckBox)findViewById(R.id.Running);
         next=(Button) findViewById(R.id.next);
         Bundle extras = getIntent().getExtras();
+
+        height = (EditText) findViewById(R.id.height);
+
+        weight = (EditText) findViewById(R.id.weight);
         Name1 = (TextView) findViewById(R.id.name);
       //  Surname1 = (TextView) findViewById(R.id.surname);
        // picture = (CircleImageView) findViewById(R.id.profile_image);
@@ -52,19 +61,19 @@ public class QuestionarieActivity extends AppCompatActivity {
             String Sex =extras.getString("Sex");
             String City=extras.getString("City");
 
-
   //          Bitmap bitmap = (Bitmap)this.getIntent().getParcelableExtra("Bitmap");
 //            picture.setImageBitmap(bitmap);
             Name1.setText(Name);
     //        Surname1.setText(Surname);
         }
 
+
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-
+                onCheckStatus();
                 onCheckboxClicked(v);
                 onRadioButtonClicked(v);
 
@@ -86,6 +95,44 @@ public class QuestionarieActivity extends AppCompatActivity {
         });
 
     }
+    public void onCheckStatus(){
+        String weight_check = weight.getText().toString();
+        String height_check = height.getText().toString();
+
+
+        if (height_check.isEmpty()){
+
+            height.setError("Please enter your height:");
+            height.requestFocus();
+
+            Toast.makeText(QuestionarieActivity.this, "Field height is empty", Toast.LENGTH_LONG).show();
+
+        } else  if (weight_check.isEmpty() ) {
+            weight.setError("Please enter your weight:");
+            weight.requestFocus();
+
+            Toast.makeText(QuestionarieActivity.this, "Field weight is empty", Toast.LENGTH_LONG).show();
+        }
+        else if(Integer.parseInt(weight_check)<0 )
+        {
+//Error message for example
+            weight.setError("Please enter a valid weight higher than 0:");
+            weight.requestFocus();
+
+            Toast.makeText(QuestionarieActivity.this, "Field weight is not correct", Toast.LENGTH_LONG).show();
+
+        }else if(Integer.parseInt(weight_check)<0){
+            height.setError("Please enter a valid height:");
+            height.requestFocus();
+
+            Toast.makeText(QuestionarieActivity.this, "Field height is not correct", Toast.LENGTH_LONG).show();
+
+        }
+        else{
+            Height=height_check;
+            Weight=weight_check;
+        }
+    }
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -97,6 +144,8 @@ public class QuestionarieActivity extends AppCompatActivity {
                     Level = "Easy";
                     B.setChecked(false);
                     C.setChecked(false);
+                    B.setClickable(false);
+                    C.setClickable(false);
                 }
                 break;
             case R.id.B:
@@ -104,13 +153,19 @@ public class QuestionarieActivity extends AppCompatActivity {
                     Level = "Middle";
                     A.setChecked(false);
                     C.setChecked(false);
+
+                    A.setClickable(false);
+                    C.setClickable(false);
                 }
                 break;
                 case R.id.C:
                 if (checked){
                     Level="Hard";
-                    C.setChecked(false);
+                    A.setChecked(false);
                     B.setChecked(false);
+
+                    B.setClickable(false);
+                    A.setClickable(false);
                 }
                     break;
         }
@@ -123,35 +178,115 @@ public class QuestionarieActivity extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.Tennis:
                 if (checked)
-                preferences.add("Tennis");
-                    break;
+                {           new Thread() {
+                        @Override
+                        public void run() {
+                            preferences.add("Tennis");
+
+
+                            Set<String> doppione6 = findDuplicates(preferences);
+                            if (doppione6.contains("Tennis"))
+                                preferences.remove("Tennis");
+
+                        }
+                    }.start();
+
+                 }break;
             case R.id.Football:
                 if (checked)
-                    preferences.add("Football");
+                {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            preferences.add("Football");
 
-                break;
+
+                            Set<String> doppione5 = findDuplicates(preferences);
+                            if (doppione5.contains("Football"))
+                                preferences.remove("Football");
+
+                        }
+                    }.start();
+
+        }                    break;
             case R.id.Running:
                 if (checked)
-                    preferences.add("Running");
+                {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            preferences.add("Running");
 
-                break;
+
+                            Set<String> doppione4 = findDuplicates(preferences);
+                            if (doppione4.contains("Running"))
+                                preferences.remove("Running");
+
+                        }
+                    }.start();
+
+                  }break;
             case R.id.Swimming:
-                if (checked)
-                    preferences.add("Swimming");
+                if (checked){
 
-                break;
-                case R.id.Gym:
-                if (checked)
-                    preferences.add("Gym");
+                    new Thread() {
+                        @Override
+                        public void run() {
 
-                    break;
+                            preferences.add("Swimming");
+
+                            Set<String> doppione3 = findDuplicates(preferences);
+                            if (doppione3.contains("Swimming"))
+                                preferences.remove("Swimming");
+                        }
+                    }.start();
+
+        }break;
+            case R.id.Gym:
+                if (checked)
+                {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            preferences.add("Gym");
+
+                            Set<String> doppione2 = findDuplicates(preferences);
+                            if (doppione2.contains("Gym"))
+                                preferences.remove("Gym");
+
+                        }
+                    }.start();
+
+              } break;
                 case R.id.Yoga:
-                if (checked)
-                    preferences.add("Yoga");
+                if (checked) {
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            preferences.add("Yoga");
+                            Set<String> doppione = findDuplicates(preferences);
+                            if (doppione.contains("Yoga"))
+                                preferences.remove("Yoga");
 
-                    break;
+                        }
+                    }.start();
+
+                       }   break;
 
 
         }
     }
+    public static Set<String> findDuplicates(List<String> listContainingDuplicates) {
+
+        final Set<String> setToReturn = new HashSet<String>();
+        final Set<String> set1 = new HashSet<String>();
+
+        for (String yourInt : listContainingDuplicates) {
+            if (!set1.add(yourInt)) {
+                setToReturn.add(yourInt);
+            }
+        }
+        return setToReturn;
+    }
 }
+

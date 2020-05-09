@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Configuration_Statistics">
-    <?xml version="1.0" encoding="utf-8"?>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="338dp"
             android:layout_height="40dp"
             android:layout_marginTop="32dp"
-            android:text="Share Your Sport "
+            android:text="@string/share_your_sport"
             android:textColor="@color/blue"
             android:textSize="29sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
-        android:text="Send me a notification when:"
+        android:text="@string/send_me_a_notification_when"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.313"
@@ -47,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="a new event is created"
+        android:text="@string/a_new_event_is_created"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.236"
@@ -59,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="someone join one of your events"
+        android:text="@string/someone_join_one_of_your_events"
         android:textSize="19sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.326"
@@ -72,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/blue"
-        android:text="Settings"
+        android:text="@string/settings"
         android:textColor="@color/blue"
         android:textSize="34dp"
         app:layout_constraintEnd_toEndOf="@+id/divider"
@@ -86,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="144dp"
         android:layout_marginTop="36dp"
-        android:text="Take statistic from:"
+        android:text="@string/take_statistic_from"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -96,7 +95,7 @@
         android:layout_height="41dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="184dp"
-        android:text="Runtastic"
+        android:text="@string/runtastic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
@@ -106,7 +105,7 @@
         android:layout_height="32dp"
         android:layout_marginStart="156dp"
         android:layout_marginTop="44dp"
-        android:text="Freeletics"
+        android:text="@string/freeletics"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 

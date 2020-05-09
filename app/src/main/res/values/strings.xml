@@ -19,6 +19,14 @@
     <string name="stringaconfermaurl">Per controllare le iscrizioni vedere il seguente link:</string>
     <string name="noHttp">No connessione HTTP</string>
     <string name="errorconnection">Errore connessione</string>
+    <string name="send_me_a_notification_when">Send me a notification when:</string>
+    <string name="a_new_event_is_created">a new event is created</string>
+    <string name="someone_join_one_of_your_events">someone join one of your events</string>
+    <string name="share_your_sport">Share Your Sport</string>
+    <string name="settings">Settings</string>
+    <string name="runtastic">Runtastic</string>
+    <string name="take_statistic_from">Take statistic from:</string>
+    <string name="freeletics">Freeletics</string>
     <string-array name="Sport">
         <item>Swimming</item>
         <item>Gym</item>
@@ -26,5 +34,10 @@
         <item>Football</item>
         <item>Running</item>
         <item>Yoga</item>
+    </string-array>
+    <string-array name="sex">
+        <item>Male</item>
+        <item>Female</item>
+
     </string-array>
 </resources>

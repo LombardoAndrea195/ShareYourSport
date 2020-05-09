@@ -10,8 +10,8 @@
             android:id="@+id/B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="176dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="184dp"
             android:text="Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="56dp"
             android:text="When"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -53,9 +53,10 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="24dp"
             android:text="Create a sport event"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
@@ -71,9 +72,9 @@
 
         <TextView
             android:id="@+id/annotations"
-            android:layout_width="331dp"
-            android:layout_height="90dp"
-            android:layout_marginTop="28dp"
+            android:layout_width="318dp"
+            android:layout_height="73dp"
+            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:hint="Insert a description or an annotation...."
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,22 +108,22 @@
             android:layout_width="213dp"
             android:layout_height="38dp"
             android:layout_marginStart="56dp"
-            android:layout_marginTop="72dp"
+            android:layout_marginTop="56dp"
             android:ems="10"
             android:hint="dd/mm/yyyy"
             android:inputType="date"
             app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/Sport" />
 
         <Button
             android:id="@+id/next"
             android:layout_width="150dp"
             android:layout_height="56dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
             android:background="@color/blue"
             android:text="Create an event"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.429"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/B" />
 
@@ -130,7 +131,7 @@
             android:id="@+id/A"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="40dp"
             android:text="Easy"
             app:layout_constraintEnd_toStartOf="@+id/B"
@@ -140,8 +141,8 @@
             android:id="@+id/C"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="24dp"
             android:text="Hard"
             app:layout_constraintStart_toEndOf="@+id/B"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -160,19 +161,52 @@
             android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="28dp"
             android:text="Max number of participants:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/annotations" />
 
-    <Spinner
-        android:id="@+id/Sport"
-        android:layout_width="210dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="48dp"
-        android:contextClickable="true"
+        <Spinner
+            android:id="@+id/Sport"
+            android:layout_width="210dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="48dp"
+            android:contextClickable="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"
+            android:entries="@array/Sport"/>
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="12dp"
+            android:text="When"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="112dp"
+        android:text="click to set the time"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/Sport" />
+
+        <EditText
+            android:id="@+id/nUtenti"
+            android:layout_width="91dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="76dp"
+            android:ems="10"
+            android:hint="5"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/annotations" />
 </androidx.constraintlayout.widget.ConstraintLayout>

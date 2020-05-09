@@ -107,21 +107,21 @@
         android:id="@+id/radioEasy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="80dp"
         android:text="Easy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <RadioButton
-        android:id="@+id/Mediumbutton"
+        android:id="@+id/B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
         android:text="Medium"
-        app:layout_constraintEnd_toStartOf="@+id/Hard"
-        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/radioEasy"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -129,31 +129,34 @@
         android:id="@+id/C"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="48dp"
         android:text="Hard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/Place" />
-
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="6dp"
-        android:layout_height="395dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toStartOf="@+id/divider"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="60dp"
         android:background="@color/blue"
         android:text="Search"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Mediumbutton" />
+        app:layout_constraintTop_toBottomOf="@+id/B" />
+
+    <Spinner
+        android:id="@+id/Sport"
+        android:layout_width="183dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:entries="@array/Sport"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

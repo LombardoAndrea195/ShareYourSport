@@ -38,6 +38,13 @@ public class Stats_Activity extends AppCompatActivity {
                 picture.setImageBitmap(bitmap);
                 Name1.setText(Name);
                 Surname1.setText(Surname);
+
+                /*
+                Bisogna fare query e poi i seguenti comandi
+                nEvent.setText(Stringa)
+                nCreated.setText(Stringa)
+                nHours.setText(STringa)
+                 */
                 next.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -47,7 +54,9 @@ public class Stats_Activity extends AppCompatActivity {
 
 
 
- /*                       Intent intent = new Intent( MenuActivity.class);
+ /*
+                scommentare manetendo riferimento del nome cognome email e immagine
+                        Intent intent = new Intent( MenuActivity.class);
                         intent.putExtra("Name", extras.getString("Name"));
                         intent.putExtra("Surname", extras.getString("Surname"));
                         intent.putExtra("Email", extras.getString("Email"));
